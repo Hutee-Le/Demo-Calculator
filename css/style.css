@@ -1,0 +1,110 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #1a1a1a;
+    font-family: Arial, sans-serif;
+}
+
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; 
+    object-fit: cover; 
+}
+
+.heading {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 28px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.calculator {
+    position: relative; 
+    z-index: 1;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: rgba(50, 63, 75, 0.8);
+    width: 300px;
+    height: auto;
+    text-align: center;
+    color: #fff;
+    margin: auto;
+}
+
+#display {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 28px;
+    text-align: right;
+    border: none;
+    border-bottom: 1px solid #444;
+    outline: none;
+    background-color: rgba(57, 74, 89, 0.8);
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    
+}
+
+.btn {
+    padding: 20px;
+    font-size: 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgba(57, 74, 89, 0.8);
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #4a6572;
+}
+
+.operator {
+    background-color: rgba(32, 201, 151, 0.8);
+}
+
+#clear {
+    background-color: rgba(230, 57, 70, 0.5);
+}
+
+#equals {
+    background-color: rgba(50, 205, 50, 0.5);
+}
+
+.calculator-title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 28px;
+    color: #fff;
+    margin-top: 0px;
+
+}
+
+.btn:active {
+    background-color: #344955;
+}
+
+#clear:hover {
+    background-color: rgba(230, 57, 70, 0.7); 
+}
+
+#equals:hover {
+    background-color: rgba(50, 205, 50, 0.7); 
+}
