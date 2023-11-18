@@ -8,6 +8,8 @@ let operator = '';
 let result = '';
 let shouldClearDisplay = false;
 
+let previousResult = '';
+
 buttons.forEach(button => {
     button.addEventListener('click', () => handleButtonClick(button.textContent));
 });
@@ -22,10 +24,10 @@ function handleButtonClick(value) {
     }
     if (value >= '0' && value <= '9') {
         currentInput += value;
-        display.value += value; // Thêm giá trị số vào màn hình
+        display.value += value; 
     } else if (value === '.' && !currentInput.includes('.')) {
         currentInput += value;
-        display.value += value; // Thêm dấu chấm vào màn hình
+        display.value += value; 
     } else if (value === 'C') {
         clearDisplay();
     } else if (value === '=') {
@@ -38,16 +40,16 @@ function handleButtonClick(value) {
         if (currentInput !== '') {
             if (operator !== '') {
                 performCalculation();
+                previousResult = result;
             } else {
-                result = currentInput;
+                previousResult = currentInput;
             }
             operator = value;
             currentInput = '';
         }
-        display.value += value; // Thêm toán tử vào màn hình
+        display.value += value; 
     }
 }
-
 
 function handleToggleSign() {
     if (currentInput !== '') {
@@ -66,18 +68,18 @@ function handlePercentage() {
 function performCalculation() {
     if (currentInput !== '') {
         if (operator === '+') {
-            result = (parseFloat(result) + parseFloat(currentInput)).toString();
+            result = (parseFloat(previousResult) + parseFloat(currentInput)).toString();
         } else if (operator === '-') {
-            result = (parseFloat(result) - parseFloat(currentInput)).toString();
+            result = (parseFloat(previousResult) - parseFloat(currentInput)).toString();
         } else if (operator === '*') {
-            result = (parseFloat(result) * parseFloat(currentInput)).toString();
+            result = (parseFloat(previousResult) * parseFloat(currentInput)).toString();
         } else if (operator === '/') {
             if (parseFloat(currentInput) === 0) {
                 display.value = "Error";
                 shouldClearDisplay = true;
                 return;
             } else {
-                result = (parseFloat(result) / parseFloat(currentInput)).toString();
+                result = (parseFloat(previousResult) / parseFloat(currentInput)).toString();
             }
         }
     }
